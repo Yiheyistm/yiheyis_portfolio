@@ -44,7 +44,7 @@ To run this project locally, follow these steps:
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/your-username/yiheyis_portfolio.git
+    git clone https://github.com/yiheyistm/yiheyis_portfolio.git
     ```
 2. Navigate to the project directory:
     ```sh
@@ -54,4 +54,4 @@ To run this project locally, follow these steps:
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+This project is **free to use** and does not contains any license.
