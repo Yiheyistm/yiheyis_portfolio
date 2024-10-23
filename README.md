@@ -34,8 +34,8 @@ This is a fully responsive personal portfolio website, built using <strong>HTML,
 
 ## Screenshots
 
-![Yiheyis Portfolio Desktop Demo](./readme-images/desktop.png "Desktop Demo")
-![Yiheyis Portfolio Mobile Demo](./readme-images/mobile.png "Mobile Demo")
+![Yiheyis Portfolio Desktop Demo](./readme-images/desktop-mode.png "Desktop Demo")
+![Yiheyis Portfolio Mobile Demo](./readme-images/mobile-mode.png "Mobile Demo")
 
 ## Technologies Used
 
