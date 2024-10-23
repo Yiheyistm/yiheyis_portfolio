@@ -1,23 +1,28 @@
 <div align="center">
 
-# Yiheyis - Personal Portfolio Website
+  ![GitHub repo size](https://img.shields.io/github/repo-size/Yiheyistm/yiheyis_portfolio)
+  ![GitHub stars](https://img.shields.io/github/stars/Yiheyistm/yiheyis_portfolio?style=social)
+  ![GitHub forks](https://img.shields.io/github/forks/Yiheyistm/yiheyis_portfolio?style=social)
 
-This is a fully responsive personal portfolio website, built using HTML, CSS, and JavaScript. This project showcases my skills, projects, and contact information in a clean and professional manner.
+
+  <br />
+  <br />
+<h2 align="center"> Yiheyis - Personal Portfolio Website </h2>
+
+This is a fully responsive personal portfolio website, built using <strong>HTML, CSS, and JavaScript</strong>. This project showcases my skills, projects, and contact information in a clean and professional manner.
+<br>
+<br>
+<a href="https://yiheyistm.github.io/yiheyis_portfolio/"><strong>➥ Live Demo</strong></a>
 
 </div>
 
 ## Table of Contents
 
-- [Live Demo](#live-demo)
 - [Features](#features)
 - [Screenshots](#screenshots)
 - [Technologies Used](#technologies-used)
 - [Setup](#setup)
 - [License](#license)
-
-## Live Demo
-
-Check out the live demo of the website [here](https://your-live-demo-link.com).
 
 ## Features
 
@@ -44,7 +49,7 @@ To run this project locally, follow these steps:
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yiheyistm/yiheyis_portfolio.git
+    git clone https://github.com/Yiheyistm/yiheyis_portfolio.git
     ```
 2. Navigate to the project directory:
     ```sh

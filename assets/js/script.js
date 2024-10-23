@@ -188,3 +188,17 @@ if (localStorage.getItem("theme") === "light_theme") {
     document.body.classList.remove("light_theme");
     document.body.classList.add("dark_theme");
 }
+
+// fullscreen image script 
+
+document.getElementById('fullscreen-image').addEventListener('click', function () {
+    if (this.requestFullscreen) {
+        this.requestFullscreen();
+    } else if (this.mozRequestFullScreen) { // Firefox
+        this.mozRequestFullScreen();
+    } else if (this.webkitRequestFullscreen) { // Chrome, Safari and Opera
+        this.webkitRequestFullscreen();
+    } else if (this.msRequestFullscreen) { // IE/Edge
+        this.msRequestFullscreen();
+    }
+});
