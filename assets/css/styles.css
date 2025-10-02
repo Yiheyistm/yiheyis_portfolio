@@ -280,6 +280,25 @@ body.light_theme .hero-banner .img-cover, body.light_theme .about-banner .img-co
     object-fit: cover;
     border-radius: 10px;
 }
+/* Normalize card image heights */
+.project-card .img-cover { max-height: 360px; }
+.award-card .img-cover { max-height: 320px; }
+
+/* Skeleton loaders */
+.skeleton-card { border-radius: 14px; overflow: hidden; }
+.skeleton { position: relative; background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+    animation: skeleton-shimmer 1.4s infinite; border-radius: 8px; }
+.skeleton-img { width: 100%; height: 240px; }
+.skeleton-text { height: 14px; margin: 10px 0; }
+@keyframes skeleton-shimmer {
+    0% { background-position: -200px 0; }
+    100% { background-position: calc(200px + 100%) 0; }
+}
+
+/* Cap the visual banner area to avoid hiding content below */
+.project-card .card-banner.img-holder {
+    max-height: 380px;
+}
 
 [data-tilt] {
     transition: var(--transition-3);
@@ -922,30 +941,15 @@ body.light_theme .hero-banner .img-cover, body.light_theme .about-banner .img-co
 }
 
 
-.skill-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-block: 30px 12px;
-}
-
-.skill-wrapper .span {
-    font-family: var(--fontFamily-poppins);
-    font-weight: var(--weight-medium);
-}
-
-.progress-bar {
-    background-color: var(--bg-primary);
-    height: 4px;
-    width: 100%;
-}
-
-.progress-fill {
-    background-color: var(--light-orange);
-    height: 100%;
-    width: var(--width);
-    animation: filling 1s linear;
-}
+.skill-list { display: grid; grid-template-columns: 1fr; gap: 14px; }
+.skill-category { margin-top: 18px; grid-column: 1 / -1; }
+.skill-category .h5 { color: var(--light-orange); margin-bottom: 6px; }
+.skill-item { background: var(--bg-primary); border: 1px solid var(--border-light-gray); border-radius: 12px; padding: 12px 14px; box-shadow: var(--shadow-1); }
+.skill-wrapper { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.skill-wrapper .span { font-family: var(--fontFamily-poppins); font-weight: var(--weight-medium); }
+.skill-wrapper .value { color: var(--light-orange); font-weight: var(--weight-medium); }
+.progress-bar { background-color: var(--bg-secondary); height: 8px; width: 100%; border-radius: 10px; overflow: hidden; }
+.progress-fill { background: linear-gradient(90deg, var(--light-orange), var(--dark-orange)); height: 100%; width: var(--width); animation: filling 1s linear; }
 
 @keyframes filling {
     0% {
@@ -1010,6 +1014,29 @@ body.light_theme .hero-banner .img-cover, body.light_theme .about-banner .img-co
     margin-inline-start: 10px;
 }
 
+/* Project filters */
+.project-filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 10px 16px 20px;
+}
+
+.project-filters .filter-btn {
+    background: var(--bg-secondary);
+    color: var(--color-primary);
+    border-radius: 20px;
+    padding: 6px 14px;
+    border: 1px solid transparent;
+    transition: var(--transition-1);
+}
+
+.project-filters .filter-btn.active,
+.project-filters .filter-btn:hover {
+    border-color: var(--light-orange);
+    color: var(--light-orange);
+}
+
 .project-card .card-banner::before {
     top: 0;
     left: 0;
@@ -1051,9 +1078,8 @@ body.light_theme .hero-banner .img-cover, body.light_theme .about-banner .img-co
 }
 
 .project-card .card-content {
-    padding: 24px 30px 24px;
-    height: 200px;
-
+    padding: 14px 20px 18px;
+    min-height: 160px;
 }
 
 .project-card .card-subtitle {
@@ -1095,7 +1121,8 @@ body.light_theme .hero-banner .img-cover, body.light_theme .about-banner .img-co
     scroll-snap-align: start;
     border-radius: 10px;
     background-color: var(--bg-secondary);
-    max-height: 550px;
+    /* Allow card content to expand; image height is capped separately */
+    max-height: none;
 }
 
 .more-btn-slider {
@@ -1385,6 +1412,80 @@ textarea.input-field {
     display: none;
 }
 
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.lightbox.open { display: flex; }
+
+.lightbox-content {
+    background: var(--bg-secondary);
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.lightbox-image {
+    max-width: 85vw;
+    max-height: 70vh;
+    display: block;
+    border-radius: 8px;
+}
+
+.lightbox-close {
+    background: transparent;
+    color: var(--color-primary);
+    font-size: 2.4rem;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.github-stats {
+    display: grid;
+    gap: 16px;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .github-stats { grid-template-columns: 1fr 1fr; }
+}
+
+/* Tech stack badges */
+.tech-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0 0 16px;
+}
+
+.tech-badges .badge {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light-gray);
+    color: var(--color-primary);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: var(--fontSize-9);
+}
+
+/* Make third-party GitHub cards look consistent */
+.github-stats img {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light-gray);
+    border-radius: 12px;
+    box-shadow: var(--shadow-1);
+    width: 100%;
+    height: auto;
+}
+
 
 
 
@@ -1544,7 +1645,7 @@ textarea.input-field {
 
 @media (min-width: 768px) {
 
-    /** 
+    /**
      * CUSTOM PROPERTY
      */
 
@@ -1651,6 +1752,8 @@ textarea.input-field {
         min-width: calc(50% - 15px);
     }
 
+    .skill-list { grid-template-columns: 1fr 1fr; }
+
 
 
     /**
@@ -1712,7 +1815,7 @@ textarea.input-field {
 
 @media (min-width: 992px) {
 
-    /** 
+    /**
      * CUSTOM PROPERTY
      */
 
@@ -1873,6 +1976,7 @@ textarea.input-field {
     .slider-item {
         min-width: calc(33.33% - 20px);
     }
+    .skill-list { grid-template-columns: 1fr 1fr 1fr; }
 
     .project .section-subtitle {
         transform: none;
@@ -2017,7 +2121,7 @@ textarea.input-field {
 
 @media (min-width: 1400px) {
 
-    /** 
+    /**
      * REUSED STYLE
      */
 
@@ -2038,7 +2142,7 @@ textarea.input-field {
 
 
 
-    /* 
+    /*
       HERO
      */
 
